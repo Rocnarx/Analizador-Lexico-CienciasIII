@@ -1,0 +1,21 @@
+// Este es un comentario de una l´ınea
+function suma(a, b) {
+return a + b; // Suma dos n´umeros
+}
+if (x > 10) {
+y = suma(x, 5); // Llamada a la funci´on suma
+} else {
+y = 0;
+}
+
+19272.28272.27627
+
+while (y < 20) {
+y = y + 1;
+}
+
+/*
+ESTE E
+S UN COMEN
+TARIO DE PRUEBA
+/
