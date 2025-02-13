@@ -4,7 +4,7 @@ from generador_cod_intermedio import IntermediateCodeGenerator
 from generador_codigo import CodeGenerator
 
 tokens, simbolos, errores_lexicos = analizador("ejemplo.zlang")
-
+6
 semantic_analyzer = SemanticAnalyzer()
 semantic_analyzer.analyze(tokens)
 

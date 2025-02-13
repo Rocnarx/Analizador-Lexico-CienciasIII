@@ -15,15 +15,13 @@ class SemanticAnalyzer:
                 i += 1 
             elif token[0] == "KEYWORD" and token[1] == "int":
                 self.handle_variable_declaration(tokens, i)
-                self.check_semicolon(tokens, i + 2) 
                 i += 2 
             elif token[0] == "IDENTIFICADOR":
                 self.check_variable_usage(token)
                 if i + 1 < len(tokens) and tokens[i + 1][0] == "OPERADOR":
                     self.check_operation(token, tokens)
-                self.check_semicolon(tokens, i + 2)
             elif token[0] == "KEYWORD" and token[1] == "return":
-                self.check_semicolon(tokens, i + 2) 
+                pass  # Eliminamos la validación de ';'
             i += 1
 
         if self.errors:
@@ -74,8 +72,3 @@ class SemanticAnalyzer:
             if left[0] == "IDENTIFICADOR" and right[0] == "IDENTIFICADOR":
                 if self.symbol_table.get(left[1]) != self.symbol_table.get(right[1]):
                     self.errors.append(f"Operación incompatible entre tipos en la línea {token[2]}")
-
-    def check_semicolon(self, tokens, index):
-        """ Verifica si la instrucción termina correctamente con ';' """
-        if index < len(tokens) and tokens[index][0] != "SIMBOLO" and tokens[index][1] != ";":
-            self.errors.append(f"Falta ';' al final de la instrucción en la línea {tokens[index - 1][2]}")
