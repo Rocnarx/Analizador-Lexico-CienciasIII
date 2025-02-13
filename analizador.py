@@ -1,7 +1,7 @@
 import re
 
-# Palabras clave
-PAL_CLAVE = {"if", "else", "while", "for", "function", "return"}
+
+PAL_CLAVE = {"if", "else", "while", "for", "function", "return", "int"}
 # Operadores
 OPERADOR = {"+", "-", "*", "/", "%", "=", "==", "!=", "<", ">", "<=", ">=", "&&", "||"}
 # Simbolos especiales
@@ -90,82 +90,5 @@ for datos in simbolos:
 print("\nErrores detectados:")
 for error in errores:
     print(f"Linea {error[0]}: {error[1]}")
-
-# CODIGO RECICLADO
-def guardar_resultados(tokens, simbolos, errores, filename="resultado.html"):
-    with open(filename, "w", encoding="utf-8") as file:
-        file.write("""
-        <html>
-        <head>
-            <title>Resultados del Analizador Lexico</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 20px;
-                    background-color: #f4f4f4;
-                    color: #333;
-                }
-                h2 {
-                    color: #004080;
-                    border-bottom: 2px solid #004080;
-                    padding-bottom: 5px;
-                }
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-                    margin: 20px 0;
-                    background: white;
-                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-                }
-                th, td {
-                    border: 1px solid #ddd;
-                    padding: 8px;
-                    text-align: left;
-                }
-                th {
-                    background-color: #0073e6;
-                    color: white;
-                }
-                tr:nth-child(even) {
-                    background-color: #f2f2f2;
-                }
-                tr:hover {
-                    background-color: #d1e7fd;
-                }
-                .error {
-                    color: red;
-                    font-weight: bold;
-                }
-            </style>
-        </head>
-        <body>
-        """)
-
-        file.write("<h2>Tabla de Tokens</h2>")
-        file.write("<table><tr><th>Tipo</th><th>Valor</th><th>Linea</th></tr>")
-        for tipo, valor, linea in tokens:
-            file.write(f"<tr><td>{tipo}</td><td>{valor}</td><td>{linea}</td></tr>")
-        file.write("</table>")
-
-        file.write("<h2>Tabla de Simbolos</h2>")
-        file.write("<table><tr><th>Nombre</th><th>Tipo</th><th>Linea</th></tr>")
-        for datos in simbolos:
-            file.write(f"<tr><td>{datos['nombre']}</td><td>{datos['tipo']}</td><td>{datos['linea']}</td></tr>")
-        file.write("</table>")
-
-        file.write("<h2>Errores Detectados</h2>")
-        if errores:
-            file.write("<ul>")
-            for error in errores:
-                file.write(f"<li class='error'>Linea {error[0]}: {error[1]}</li>")
-            file.write("</ul>")
-        else:
-            file.write("<p style='color: green; font-weight: bold;'>No se encontraron errores.</p>")
-
-        file.write("</body></html>")
-
-    print(f"Archivo '{filename}' generado exitosamente.")
-
-guardar_resultados(tokens, simbolos, errores)
 
     

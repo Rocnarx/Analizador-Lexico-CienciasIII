@@ -1,0 +1,8 @@
+int num = 10;
+int suma = num + 20;
+if (num > 5) {
+    int resultado = suma;
+    return resultado;
+} else {
+    return 0;
+}

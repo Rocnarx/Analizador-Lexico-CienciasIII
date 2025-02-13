@@ -1,0 +1,19 @@
+int a = 3;
+int b = 5;
+int c = a + b;
+d;
+
+if (c > b) {
+    f = c - b;
+    if (d > 1) {
+        return d;
+    } else {
+        return a;
+    }
+} else {
+    d = b + 2;
+    return d;
+}
+
+int e = a + b + c;
+return e;
