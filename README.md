@@ -1,4 +1,4 @@
-# Taller #2 asignatura Ciencias 3
+# Taller Final asignatura Ciencias 3
 
 Integrantes:
 
